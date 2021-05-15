@@ -7,7 +7,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: crazy
+    types: jd_crazy_joy_coin
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: JamesAsser/lxk0301
-          ref: main
+          ref: master
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -32,7 +32,7 @@ jobs:
       - name: npm install
         run: npm install
       - name: '运行 【crazyjoy挂机死循环】'
-        run: node crazy.js
+        run: node jd_crazy_joy_coin.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
